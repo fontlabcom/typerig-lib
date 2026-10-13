@@ -22,3 +22,19 @@ Wait, but: source fidelity does not imply host-runtime verification. FontLab/Gly
 Official build configuration: https://hatch.pypa.io/latest/config/build/
 Official version plugin: https://github.com/ofek/hatch-vcs
 
+
+## Review fix round 1
+
+Excluded WORK.md from sdist because its local verification paths are private.
+Tag selection now requires the v-digit/dot pattern and rejects non-digit/dot/v
+characters, extra dots and repeated v characters before Git chooses a nearest tag.
+Seven isolated Git tests exercise exact 1.2.3 release, one-commit development
+distance, historical Py3.10/py27 tags and nearer beta/host/four-component/repeated-v tags.
+Added artifact privacy checks over every member of both distributions: local
+filesystem prefixes, local tooling state and WORK.md are rejected, including docs.
+
+Fresh evidence: `uv build --out-dir /tmp/typerig-issue101-fix1b` succeeded
+(sdist then wheel from sdist); `TYPERIG_ARTIFACT_DIR=/tmp/typerig-issue101-fix1b
+python -m pytest -q -o pythonpath= tests` returned 10 passed.
+`uvx twine check /tmp/typerig-issue101-fix1b/*`: both PASSED.
+No API changes.

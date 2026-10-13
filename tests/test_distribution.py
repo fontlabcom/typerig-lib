@@ -40,3 +40,25 @@ def test_artifacts_retain_complete_library_without_gui_scripts():
         for name, data in sources.items():
             assert archive.extractfile(members["Lib/" + name]).read() == data
         assert not any(n.startswith(("Scripts/", "Docs/")) for n in members), "GUI assets shipped"
+
+
+def test_distribution_privacy_and_published_docs():
+    artifact_dir = os.environ.get("TYPERIG_ARTIFACT_DIR")
+    if not artifact_dir:
+        import pytest
+        pytest.skip("Build artifacts first and set TYPERIG_ARTIFACT_DIR")
+    forbidden_names = {"." + n for n in ("claude", "omc", "codegraph", "git")}
+    forbidden_paths = ["/" + name + "/" for name in ("Users", "home", "tmp", "private")]
+    wheel, = Path(artifact_dir).glob("*.whl")
+    sdist, = Path(artifact_dir).glob("*.tar.gz")
+    with zipfile.ZipFile(wheel) as archive:
+        entries = [(n, archive.read(n)) for n in archive.namelist()]
+    with tarfile.open(sdist) as archive:
+        entries += [(m.name, archive.extractfile(m).read())
+                    for m in archive.getmembers() if m.isfile()]
+    for name, data in entries:
+        assert not forbidden_names.intersection(Path(name).parts), f"Tool state: {name}"
+        assert Path(name).name != "WORK.md", "Private verification log shipped"
+        text = data.decode("utf-8", errors="ignore")
+        for forbidden in forbidden_paths:
+            assert forbidden not in text, f"Local filesystem path in {name}"

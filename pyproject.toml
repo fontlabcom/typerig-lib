@@ -27,7 +27,7 @@ source = "vcs"
 [tool.hatch.version.raw-options]
 fallback_version = "0.1.0"
 tag_regex = '^v?(?P<version>\d+\.\d+\.\d+)$'
-git_describe_command = "git describe --dirty --tags --long --match v[0-9]* --exclude *-Py* --exclude *-py*"
+git_describe_command = "git describe --dirty --tags --long --match v[0-9]*.[0-9]*.[0-9]* --exclude *[!0-9.v]* --exclude *.*.*.* --exclude *v*v*"
 
 [tool.hatch.build]
 exclude = ["**/__pycache__", "**/*.pyc", "**/.DS_Store", "**/.claude", "**/.omc", "**/.codegraph"]
@@ -36,10 +36,10 @@ exclude = ["**/__pycache__", "**/*.pyc", "**/.DS_Store", "**/.claude", "**/.omc"
 packages = ["Lib/typerig"]
 
 [tool.hatch.build.targets.sdist]
-only-include = ["Lib/typerig", "tests", "pyproject.toml", "README.md", "LICENSE", "UPSTREAM.md", "CHANGELOG.md", "DEPENDENCIES.md", "PLAN.md", "TODO.md", "WORK.md"]
+only-include = ["Lib/typerig", "tests", "pyproject.toml", "README.md", "LICENSE", "UPSTREAM.md", "CHANGELOG.md", "DEPENDENCIES.md", "PLAN.md", "TODO.md"]
 
 [tool.hatch.envs.default]
-dependencies = ["pytest>=8", "build>=1.2"]
+dependencies = ["pytest>=8", "build>=1.2", "hatch-vcs>=0.4"]
 
 [tool.hatch.envs.default.scripts]
 test = "pytest {args:tests}"
