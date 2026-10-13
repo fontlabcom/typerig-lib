@@ -3,6 +3,15 @@ this_file: WORK.md
 ---
 # Work log
 
+## Expanded reference source fixes
+
+Source-only strict documentation found eight unresolved Markdown references in
+six array-expression docstrings. Wrapped those expressions in inline code across
+four library files. AST comparison excluding string-expression docstrings proves
+all executable code unchanged. Original upstream history and v0.2.0 tag remain.
+The complete new site renders those sources; broader expanded-goal acceptance
+is owned by the workspace and remains pending.
+
 Read upstream README and regression suites; consulted official Hatch build selection and hatch-vcs documentation. No previous project planning or packaging documents existed.
 
 Baseline: action suite passed all 58 checks; object suite reached font file tests then failed because system Python lacked fontTools. Packaging declares that upstream dependency.

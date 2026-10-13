@@ -1,3 +1,4 @@
+# this_file: Lib/typerig/core/algo/outline_cleanup.py
 # MODULE: TypeRig / Core / Algo / Outline Cleanup
 # -----------------------------------------------------------
 # Remove redundant nodes and geometric debris from closed
@@ -119,7 +120,7 @@ def contour_deviation(a, b) -> float:
 
 # - Pipeline -----------------------------
 def clean(masters: list[list], opts: CleanOptions | None = None) -> list[list]:
-	'''masters[m][c] is contour c of master m (TypeRig Contours). Returns new
+	'''`masters[m][c]` is contour c of master m (TypeRig Contours). Returns new
 	contours; the input is not modified.'''
 	opts = opts or CleanOptions()
 	if not masters:

@@ -1,3 +1,4 @@
+# this_file: Lib/typerig/core/algo/matchmaker.py
 # MODULE: TypeRig / Core / Algo / Matchmaker
 # -----------------------------------------------------------
 # Physics-based polygon matchmaker for point-compatible
@@ -134,7 +135,7 @@ def dp_match(L_a, theta_a, L_b, theta_b, k_s=1.0, k_b=1.0, c_ins_scale=1.0):
 	Returns:
 		(C, B, total_cost): C is (m+1)x(n+1) cost table, B is same-shape
 		back-trace table whose entries are BT_PAIR / BT_INSERT_A /
-		BT_INSERT_B, total_cost == C[m][n].
+		BT_INSERT_B, total_cost == `C[m][n]`.
 	'''
 	m = len(L_a)
 	n = len(L_b)

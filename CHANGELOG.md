@@ -3,6 +3,11 @@ this_file: CHANGELOG.md
 ---
 # Changelog
 
+## Expanded documentation — unreleased
+
+- Mark array expressions as inline code so source-only Markdown documentation
+  does not mistake them for cross-reference links. Runtime code is unchanged.
+
 ## Unreleased
 
 - Package complete upstream TypeRig library using hatchling and hatch-vcs.

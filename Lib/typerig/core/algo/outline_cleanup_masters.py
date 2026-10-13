@@ -1,3 +1,4 @@
+# this_file: Lib/typerig/core/algo/outline_cleanup_masters.py
 # MODULE: TypeRig / Core / Algo / Outline Cleanup — Multi-master
 # -----------------------------------------------------------
 # Every structural decision is made once and applied to all
@@ -50,7 +51,7 @@ def signature(contour) -> tuple:
 
 
 def assert_compatible(masters, stage: str = 'input') -> None:
-	'''masters[m][c] are TypeRig Contours. Same contour count, node count
+	'''`masters[m][c]` are TypeRig Contours. Same contour count, node count
 	and node kinds in the same order in every master.'''
 	if not masters:
 		return

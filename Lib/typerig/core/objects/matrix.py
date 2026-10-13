@@ -1,3 +1,4 @@
+# this_file: Lib/typerig/core/objects/matrix.py
 # MODULE: TypeRig / Core / Matrix (Object)
 # ----------------------------------------------------------
 # A Python 3 adaptation of...
@@ -304,11 +305,11 @@ class Matrix(Table):
 		self.size = self.rows, self.cols = len(elems), len(elems[0])
 
 	def tr(self):
-		'''Tranpose elements so that Transposed[i][j] = Original[j][i]'''
+		'''Tranpose elements so that `Transposed[i][j] = Original[j][i]`'''
 		return Mat(list(zip(*self)))
 
 	def star(self):
-		'''Return the Hermetian adjoint so that Star[i][j] = Original[j][i].conjugate()'''
+		'''Return the Hermetian adjoint so that `Star[i][j] = Original[j][i].conjugate()`'''
 		return self.tr().conjugate()
 
 	def diag(self):
@@ -548,7 +549,7 @@ def eye(m=1, n=None):
 	return genmat(m, n, lambda i, j: i==j)
 
 def hilb(m=1, n=None):
-	'''Hilbert matrix with side length m-by-m or m-by-n.  Elem[i][j]=1/(i+j+1)'''
+	'''Hilbert matrix with side length m-by-m or m-by-n.  `Elem[i][j]=1/(i+j+1)`'''
 	return genmat(m, n, lambda i, j: 1.0/(i + j + 1.0))
 
 def rand(m=1, n=None):
