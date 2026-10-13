@@ -5,4 +5,4 @@ this_file: TODO.md
 
 - [x] Add modern packaging and retain upstream license.
 - [x] Add standalone and artifact boundary tests.
-- [ ] Publish reviewed tagged release (controller task).
+- [x] Publish reviewed tagged release (controller task).
