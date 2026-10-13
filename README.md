@@ -1,4 +1,32 @@
-# TypeRig
+---
+this_file: README.md
+---
+# TypeRig library distribution
+
+Install the complete TypeRig Python library with `python -m pip install typerig`.
+Python 3.10 or newer is required. The standalone core needs no FontLab installation.
+FontLab and Glyphs proxy modules remain available and require their respective host APIs.
+
+```python
+from typerig.core.objects.point import Point
+
+point = Point(10, 20) + Point(2, 3)
+print(point.x, point.y)  # 12.0 23.0
+```
+
+This packaging fork retains every file in upstream `Lib/typerig`; it does not
+install the GUI scripts, panels, toolbars, installers, or documentation assets.
+Get those tools from [kateliev/TypeRig](https://github.com/kateliev/TypeRig).
+Library GUI helpers inside `typerig.proxy` are retained for API compatibility.
+
+Version numbers come from clean `vX.Y.Z` Git tags via hatch-vcs. Upstream
+host-specific tags are ignored. Untagged checkouts use the initial 0.1.0 fallback to derive a development version.
+Build with `uv build`; run checks with `uvx hatch run test`. After building,
+`TYPERIG_ARTIFACT_DIR=dist uvx hatch run test` audits both artifacts.
+
+See [UPSTREAM.md](UPSTREAM.md) for provenance and MPL-2.0 licensing.
+
+## Upstream TypeRig overview
 
 A Python framework for font design and engineering. Started as a personal toolkit for working inside FontLab, grew over the years into a standalone geometry and interpolation core with a bunch of GUI tools on top.
 

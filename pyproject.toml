@@ -1,0 +1,49 @@
+# this_file: pyproject.toml
+[build-system]
+requires = ["hatchling>=1.27", "hatch-vcs>=0.4"]
+build-backend = "hatchling.build"
+
+[project]
+name = "typerig"
+dynamic = ["version"]
+description = "TypeRig font geometry, interpolation, and host integration library"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MPL-2.0"
+license-files = ["LICENSE"]
+authors = [{name = "Vassil Kateliev"}]
+dependencies = ["fonttools>=4"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Text Processing :: Fonts"]
+
+[project.urls]
+Homepage = "https://www.typerig.com"
+Upstream = "https://github.com/kateliev/TypeRig"
+Repository = "https://github.com/fontlabcom/typerig-lib"
+Issues = "https://github.com/fontlabcom/typerig-lib/issues"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+fallback_version = "0.1.0"
+tag_regex = '^v?(?P<version>\d+\.\d+\.\d+)$'
+git_describe_command = "git describe --dirty --tags --long --match v[0-9]* --exclude *-Py* --exclude *-py*"
+
+[tool.hatch.build]
+exclude = ["**/__pycache__", "**/*.pyc", "**/.DS_Store", "**/.claude", "**/.omc", "**/.codegraph"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["Lib/typerig"]
+
+[tool.hatch.build.targets.sdist]
+only-include = ["Lib/typerig", "tests", "pyproject.toml", "README.md", "LICENSE", "UPSTREAM.md", "CHANGELOG.md", "DEPENDENCIES.md", "PLAN.md", "TODO.md", "WORK.md"]
+
+[tool.hatch.envs.default]
+dependencies = ["pytest>=8", "build>=1.2"]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["Lib"]
