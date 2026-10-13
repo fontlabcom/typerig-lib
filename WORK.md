@@ -15,7 +15,7 @@ Verification (Python 3.12.12):
 - Wheel installed in an isolated venv; external working directory import resolved to site-packages, Point addition returned (12.0, 23.0), UFO imports succeeded.
 - Sdist installed in a second isolated venv; metadata version and Point import succeeded.
 - `uvx twine check /tmp/typerig-final-artifacts/*`: both PASSED.
-- Artifact tests compare every visible library file byte-for-byte in both distributions; all 153 upstream tracked library files retained. Only library plus dist-info appears in wheel; no Scripts/Docs GUI assets in sdist. Ignored local Claude configuration is explicitly excluded.
+- Artifact tests compare every visible library file byte-for-byte in both distributions; all 153 upstream library files retained (the 154th tracked entry is local Claude configuration). Only library plus dist-info appears in wheel; no Scripts/Docs GUI assets in sdist. Tracked local Claude configuration is explicitly excluded.
 
 Wait, but: source fidelity does not imply host-runtime verification. FontLab/Glyphs proxies remain unchanged and need host APIs; no GUI host execution was performed. A clean release tag and publication remain controller work. Development artifact version: 0.1.1.dev1423+g7f92f3a29.d20261013.
 
