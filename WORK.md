@@ -38,3 +38,9 @@ Fresh evidence: `uv build --out-dir /tmp/typerig-issue101-fix1b` succeeded
 python -m pytest -q -o pythonpath= tests` returned 10 passed.
 `uvx twine check /tmp/typerig-issue101-fix1b/*`: both PASSED.
 No API changes.
+
+Whole-project iteration2: current eight-package wheel/sdist audits and joint
+clean installs,16 Twine checks,457 runtime-suite tests and live native control,
+drawing, remote, aliases and Aidus integration pass. Original migration files
+are byte-verified in destination recovery; selected source cleanup is committed.
+Iteration3/tagged builds and actual release verification follow.
