@@ -203,3 +203,10 @@ No warranties. By using this you agree that you use it at your own risk.
 © Vassil Kateliev — [kateliev.com](http://www.kateliev.com) | Karandash Type Foundry — [karandash.eu](http://www.karandash.eu)
 
 [typerig.com](http://www.typerig.com)
+
+## Status
+
+Issue 101 packaging is complete and released as verified v0.2.0 (RELEASE.md): the
+complete library is retained, versions derive from Git tags (hatch-vcs), GUI and
+private-state files are excluded, and wheel/sdist installs pass standalone tests
+plus native `pNode` delegation checks in FontLab.

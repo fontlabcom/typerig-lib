@@ -3,6 +3,12 @@ this_file: CHANGELOG.md
 ---
 # Changelog
 
+## 2026-10-15 — completed checklist (moved from TODO.md)
+
+- Add modern packaging and retain upstream license.
+- Add standalone and artifact boundary tests.
+- Publish reviewed tagged release (controller task).
+
 ## Expanded documentation — unreleased
 
 - Mark array expressions as inline code so source-only Markdown documentation
