@@ -62,3 +62,8 @@ Downloaded native smoke covers all eight packages and both formats, including
 production ACP/native UI and TypeRig composition. Exact release URLs, immutable
 code commit and asset digests are in RELEASE.md. This follow-up changes only
 completion evidence; release code and tag are unchanged.
+
+2026-10-15 workspace reconciliation: fresh source suite 8passed/2skipped, exit0.
+Exact command and retained initial failures: parent verification/plan-todo-audit-20261015/baseline-tests.json.
+Completed repository plans were archived where no repository tasks remain;
+workspace integration/release gates remain separate.
