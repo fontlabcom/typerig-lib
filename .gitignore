@@ -12,3 +12,10 @@ dmypy.json
 .DS_Store
 _ideas
 .claude
+# Private and scratch state: macOS metadata, agent scratch dirs, local envs (never source)
+.omc/
+**/.omc/
+.local/
+.superpowers/
+.worktrees/
+.venv/
