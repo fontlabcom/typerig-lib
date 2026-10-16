@@ -14,7 +14,10 @@ this_file: CHANGELOG.md
 - Mark array expressions as inline code so source-only Markdown documentation
   does not mistake them for cross-reference links. Runtime code is unchanged.
 
-## Unreleased
+## v0.2.1 (2026-10-16)
+
+Docstring/header documentation for the public docs site, provenance wording, ignore rules (issues 101/106). Executable library code unchanged. Release review: verification/issue-106/reviews/X5-typerig-lib.md.
+
 
 - Package complete upstream TypeRig library using hatchling and hatch-vcs.
 - Exclude repository GUI scripts and assets from distributions.
